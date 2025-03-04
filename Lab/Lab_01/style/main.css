@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fffefe;
+  color: #0b3f23;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px; }
+
+body {
+  text-align: center;
+  margin: 40px 0px; }
+
+.heading:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+h1.title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 15px; 
+  display: block; }
+
+.buttons {
+    align-items: center;
+    margin-top: 30px;
+}
+
+.buttons label {
+    font-size: 25px;
+    font-weight: bold;
+    color: #810a0a;
+}
+
+#algorithm {
+    padding: 8px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #830505;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#algorithm:hover {
+    border-color: #007bff;
+}
+
+#algorithm:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.65; 
+  font-weight: bold;}
+
+.container {
+  vertical-align: middle;
+  margin: 0 auto; }
+
+.buttons {
+  margin: 10px; }
+
+.buttons button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  background: #bb9bb4;
+  border-radius: 10px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 60px;
+  line-height: 42px;
+  width: 150px; 
+  font-size: 20px;
+  font-weight: bold;}

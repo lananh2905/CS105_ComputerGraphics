@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>DDA</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+<div class="container">
+    <div class="heading">
+        <h1 class="title">DRAW LINE Algorithm</h1>
+    </div>
+
+    <div class="buttons">
+        <label for="algorithm">Algorithm:</label>
+        <select id="algorithm">
+            <option value="dda">DDA</option>
+            <option value="bresenham">Bresenham</option>
+        </select>
+    </div>
+
+    <div class="main-container">
+        <canvas id="canvas">
+        </canvas>
+    </div>
+
+    <p class="hint"> Press ESC to finish drawing line</p>
+    
+    <div class="buttons">
+        <button id="reset">
+            Reset
+        </button>
+    </div>
+
+    <script type="module" src="src/drawline.js"></script>
+</div>
