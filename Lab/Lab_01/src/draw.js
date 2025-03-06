@@ -1,5 +1,7 @@
 import { drawLine_daa } from './algorithm/daa.js';
 import { drawLine_Bresenham } from './algorithm/bresenham.js';
+import { drawMidpointCircle } from './algorithm/midpoint.js';
+import { drawMidpointEllipse } from './algorithm/ellipse.js';
 
 var algorithmSelect = document.getElementById("algorithm");
 var canvas = document.getElementById("canvas");
@@ -14,12 +16,20 @@ var lineRgba, vlineRgba;
 
 function updateColors() {
     if (algorithmSelect.value === "dda") {
-        lineRgba = [162, 42, 42, 255];
-        vlineRgba = [162, 42, 42, 255];
-    } else {
+        lineRgba = [255, 255, 255, 255];
+        vlineRgba = [255, 255, 255, 255];
+    } else if (algorithmSelect.value === "bresenham") {
         lineRgba = [0, 0, 0, 255];
         vlineRgba = [0, 0, 0, 255];
+    } else if (algorithmSelect.value === "midpoint") {
+        lineRgba = [0, 0, 255, 255]; 
+        vlineRgba = [0, 0, 255, 255];
     }
+    else if (algorithmSelect.value === "ellipse") {
+        lineRgba = [255, 0, 0, 255]; 
+        vlineRgba = [255, 0, 0, 255];
+    }
+    
 }
 
 updateColors(); // Set initial colors
@@ -60,8 +70,15 @@ function Painter(context, width, height) {
         let algorithm = algorithmSelect.value;
         if (algorithm === "dda") {
             drawLine_daa(p0, p1, rgba, this.setPixel.bind(this));
-        } else {
+        } else if (algorithm === "bresenham") {
             drawLine_Bresenham(p0, p1, rgba, this.setPixel.bind(this));
+        } else if (algorithm === "midpoint") {
+            drawMidpointCircle({ x: p0[0], y: p0[1] }, { x: p1[0], y: p1[1] }, rgba, this.setPixel.bind(this));
+        } else if (algorithm === "ellipse") {
+            let centerX = p0[0], centerY = p0[1];
+            let radiusX = Math.abs(p1[0] - centerX);
+            let radiusY = Math.abs(p1[1] - centerY);
+            drawMidpointEllipse(centerX, centerY, radiusX, radiusY, rgba, this.setPixel.bind(this));
         }
     };
 
@@ -86,10 +103,16 @@ function Painter(context, width, height) {
         var n = this.points.length;
         this.drawBkg();
         for (var i = 0; i < n; i++) this.drawPoint(this.points[i], pointRgba);
-        for (var i = 0; i < n - 1; i++) this.drawLine(this.points[i], this.points[i + 1], lineRgba);
-        if (n > 0 && (this.points[n - 1][0] != p[0] || this.points[n - 1][1] != p[1])) {
-            this.drawLine(this.points[n - 1], p, vlineRgba);
+        
+        if (algorithmSelect.value === "midpoint" && n >= 2) {
+            this.drawLine(this.points[n - 2], this.points[n - 1], lineRgba);
+        } else {
+            for (var i = 0; i < n - 1; i++) this.drawLine(this.points[i], this.points[i + 1], lineRgba);
+            if (n > 0 && (this.points[n - 1][0] != p[0] || this.points[n - 1][1] != p[1])) {
+                this.drawLine(this.points[n - 1], p, vlineRgba);
+            }
         }
+
         this.context.putImageData(this.imageData, 0, 0);
     };
 
@@ -122,7 +145,13 @@ function doMouseDown(e) {
     var p = getPosOnCanvas(e.clientX, e.clientY);
     painter.addPoint(p);
     painter.draw(p);
-    if (state === 0) state = 1;
+
+    if ((algorithmSelect.value === "midpoint" || algorithmSelect.value === "ellipse") && painter.points.length === 2) {
+        state = 2;
+        painter.draw(painter.points[painter.points.length - 1]);
+    } else if (state === 0) {
+        state = 1;
+    }
 }
 
 function doKeyDown(e) {
