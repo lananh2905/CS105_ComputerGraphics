@@ -15,8 +15,8 @@
 ## Lab 1: Các thuật toán vẽ đường thẳng, đường tròn, ellipse
 * **Yêu cầu:** Xây dựng các thuật toán vẽ đường thằng (DAA, Bresenham), đường tròn (Midpoint) và Ellipse (2 lần Midpoint trên 1 phần tư cung tròn) bằng `javascript`. Tạo menu trên index.html cho phép người dùng có thể chọn 1 trong 4 thuật toán để thao tác.
 * **Kết quả:**
-  
-<img src="https://github.com/user-attachments/assets/7e9d4ed3-3da8-445e-88b5-b5d84c93ead1" alt="Description" width="500"/>
+
+<img src="https://github.com/user-attachments/assets/47c2eb4a-6b38-4c7a-a1e2-b946d25cfd43" alt="Description" width="500"/>
 
 * **Code:** [Lab 01](Lab/Lab_01)
 
