@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fractal Graphic</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h2>Lab 04: Fractal Graphic</h2>
+
+  <div class="controls">
+    <label for="algorithm">Algorithm:</label>
+    <select id="algorithm">
+        <option value="koch">Koch Snowflake</option>
+        <option value="minkowski">Minkowski Island</option>
+        <option value="carpet">Sierpiński Carpet</option>
+        <option value="triangle">Sierpiński Triangle</option>
+    </select>
+
+    <label for="level">Level:</label>
+    <input type="number" id="level" min="0" max="10" value="3">
+
+    <button onclick="renderFractal()">Draw Fractal</button>
+  </div>
+
+  <canvas id="canvas" width="600" height="600"></canvas>
+
+
+  <!-- Load individual fractal scripts -->
+  <script src="Koch.js"></script>
+  <script src="minkowski.js"></script>
+  <script src="sierpinski_carpet.js"></script>
+  <script src="sierpinski_triangle.js"></script>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function renderFractal() {
+      clearCanvas();
+      const algorithm = document.getElementById("algorithm").value;
+      const level = parseInt(document.getElementById("level").value);
+
+      switch (algorithm) {
+        case "koch":
+          drawKochSnowflake(ctx, Math.min(level, 8));
+          break;
+        case "minkowski":
+          drawMinkowskiIsland(ctx, Math.min(level, 5));
+          break;
+        case "carpet":
+          const sizeCarpet = canvas.width * 0.8;
+          const startX = (canvas.width - sizeCarpet) / 2;
+          const startY = (canvas.height - sizeCarpet) / 2;
+          ctx.fillStyle = 'black';
+          drawSierpinski(ctx, startX, startY, sizeCarpet, Math.max(1, Math.min(level, 7)));
+          break;
+        case "triangle":
+          const sizeTri = canvas.width * 0.9;
+          const height = sizeTri * Math.sqrt(3) / 2;
+          const p1 = { x: canvas.width / 2, y: (canvas.height - height) / 2 };
+          const p2 = { x: (canvas.width - sizeTri) / 2, y: (canvas.height + height) / 2 };
+          const p3 = { x: (canvas.width + sizeTri) / 2, y: (canvas.height + height) / 2 };
+          ctx.fillStyle = 'black';
+          drawSierpinskiTriangle(ctx, p1, p2, p3, Math.max(1, Math.min(level, 10)));
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

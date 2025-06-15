@@ -1,0 +1,89 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #2c3e50;
+    font-family: "Segoe UI", "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+  }
+  
+  body {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  h2 {
+    margin-top: 10px;
+    font-size: 30px;
+    color: #00796b;
+  }
+  
+  canvas {
+    border: 3px solid #00796b;
+    background-color: #ffffff;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  
+  .controls {
+    margin-top: 0px;
+    background-color: #ffffff;
+    padding: 25px 30px;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .controls label {
+    display: inline-block;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  
+  .controls input,
+  .controls select {
+    padding: 6px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    margin-left: 5px;
+  }
+  
+  .controls input:focus,
+  .controls select:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.3);
+  }
+  
+  button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #004d40;
+    transform: translateY(-2px);
+  }
+  
+  footer {
+    margin-top: 50px;
+    padding: 12px;
+    font-size: 14px;
+    color: #888;
+  }
+  
