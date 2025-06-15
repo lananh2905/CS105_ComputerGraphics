@@ -7,5 +7,7 @@ Một dự án đơn giản sử dụng **Three.js**, **Vite**, và **dat.GUI** 
 ## 🚀 Cách chạy dự án
 
 ```bash
+git clone https://github.com/lananh2905/CS105_ComputerGraphics
+cd CS105_ComputerGraphics/Lab/Lab_07
 npm install
 npm run dev
