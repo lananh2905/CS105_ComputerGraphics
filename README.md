@@ -66,6 +66,15 @@
 
 * **Code:** [Lab 05](Lab/Lab_05)
 
+## Lab 6: Phép biến đổi affine trong không gian 3D + Phép biến đổi quan sát
+
+* **Yêu cầu:**  Phép biến đổi quay, tỉ lệ, tịnh tiến trên đối tượng đã vẽ. Thay đổi thông số camera LookAt, VRP của camera.
+* **Kết quả:**
+
+<img src="./images/lab06.png" alt="Description" width="500"/>
+
+* **Code:** [Lab 06](Lab/Lab_06)
+
 ## Lab 7: Chiếu sáng + Texture
 
 * **Yêu cầu:** Sữ dụng three.js để vẽ một mô hình bất kì, thêm text ture, chiếu sáng, tạo bóng cho vật thể.
@@ -74,3 +83,12 @@
 <img src="./images/lab07.png" alt="Description" width="500"/>
 
 * **Code:** [Lab 07](Lab/Lab_07)
+
+## Create by
+
+* **Github:** [lananh2905](https://github.com/lananh2905)
+* **Email:** 22520083@gm.uit.edu.vn
+
+
+<!-- Footer -->
+<p align='center'>Copyright © 2025 - Trịnh Thị Lan Anh</p>
