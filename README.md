@@ -57,6 +57,15 @@
 * **Code:** [Lab 04](Lab/Lab_04)
 * **Report:** [Fractal](./Lab/Lab_04/Report.pdf)
 
+## Lab 5: Không gian 3 chiều
+
+* **Yêu cầu:** Sữ dụng three.js để vẽ thêm ít nhất 2 đối tượng khác và add vào scene.
+* **Kết quả:**
+
+<img src="./images/lab05.png" alt="Description" width="500"/>
+
+* **Code:** [Lab 05](Lab/Lab_05)
+
 ## Lab 7: Chiếu sáng + Texture
 
 * **Yêu cầu:** Sữ dụng three.js để vẽ một mô hình bất kì, thêm text ture, chiếu sáng, tạo bóng cho vật thể.
